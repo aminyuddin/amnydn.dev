@@ -1,5 +1,31 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
+import firebaseLogo from './assets/firebase.svg'
+import nextjsLogo from './assets/nextjs.svg'
+import tailwindLogo from './assets/tailwind.svg'
+import typescriptLogo from './assets/typescript.svg'
+import homeAssistantLogo from './assets/homeassistant.svg'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+
+const AWS_LOGO_URL = '/logos/aws.svg'
+const BIMB_LOGO_URL = '/logos/bimb-app-icon.png'
+const PAYNET_LOGO_URL = '/logos/paynet.png'
+const BEU_LOGO_URL = '/logos/beu.svg'
+const ELASTIC_LOGO_URL = '/logos/elastic.svg'
+const ELASTIC_TRIAGE_LOGO_URL = '/logos/elastic-ticketing.png'
+const PYTHON_LOGO_URL = '/logos/python.svg'
+const WINAPP_LOGO_URL = '/logos/winapp.jpg'
+const PORTFOLIO_LOGO_URL = '/favicon.svg'
+const AY_SMART_HOME_LOGO_URL = '/logos/ay-smart-home.png'
+const MCCO_LOGO_URL = '/logos/mcco-logo.png'
+const POSTGRESQL_LOGO_URL = '/logos/postgresql.svg'
+const EKS_LOGO_URL = '/logos/eks.svg'
+const ARGOCD_LOGO_URL = '/logos/argocd.svg'
+const CLOUDFORMATION_LOGO_URL = '/logos/cloudformation.svg'
+const JAVA_LOGO_URL = '/logos/java.svg'
+const SPRINGBOOT_LOGO_URL = '/logos/springboot.svg'
+const DOCKER_LOGO_URL = '/logos/docker.svg'
 
 const TECHNOLOGIES = [
   'Agentic AI',
@@ -129,88 +155,190 @@ const BADGES: { name: string; url: string; imageUrl: string }[] = [
   { name: 'AWS Certified Advanced Networking – Specialty', url: 'https://www.credly.com/badges/0493a6f6-a064-4554-8325-4bdff10f4d91', imageUrl: 'https://images.credly.com/size/340x340/images/4d08274f-64c1-495e-986b-3143f51b1371/image.png' },
 ]
 
-type Project = { title: string; organization: string; orgLabel?: string; bullets: string[] }
+type ProjectLogo = { src: string; alt: string; href?: string; backgroundColor?: string }
+type ProjectLink = { label: string; href: string }
+type ProjectStackItem = { name: string; icon: string }
+
+type Project = {
+  title: string
+  organization: string
+  orgLabel?: string
+  bullets: string[]
+  logo?: ProjectLogo
+  links?: ProjectLink[]
+  stack?: ProjectStackItem[]
+}
 
 const PROJECTS: Project[] = [
   {
-    title: 'Cloud Adoption & Cloud Migration',
-    organization: 'Bank Islam Malaysia Berhad',
+    title: 'This Website – Personal Portfolio',
+    organization: 'Personal',
+    orgLabel: 'Type',
+    logo: { src: PORTFOLIO_LOGO_URL, alt: 'Portfolio favicon' },
     bullets: [
-      'Led enterprise cloud adoption and migration initiatives across on-premises and AWS environments.',
-      'Defined cloud target architectures, landing zones, and migration strategies aligned with regulatory and security requirements.',
-      'Oversaw application migrations, hybrid integrations, performance optimization, and cloud cost management.',
-      'Enabled modernization while maintaining resiliency, security, and compliance in regulated banking environments.',
+      'Built with Vite, React, and TypeScript for a performant, type-safe single-page portfolio.',
+      'Features accessible navigation, animated project carousel, and badge showcase integrations.',
+      'Deployed on Firebase Hosting with CLI-driven builds and lightweight deployment automation.',
     ],
-  },
-  {
-    title: 'Be U by Bank Islam – Digital Banking Platform',
-    organization: 'Bank Islam Malaysia Berhad',
-    bullets: [
-      'Architected a cloud-native digital banking platform supporting onboarding, customer lifecycle management, and transactions.',
-      'Designed integrations with Core Banking, Credit Decision Engine, Card Management, and external services.',
-      'Implemented AML/CFT transaction monitoring, observability, and secure system integrations.',
-      'Led architecture decisions on security remediation, performance optimization, and regulatory compliance.',
+    links: [
+      { label: 'amnydn.dev', href: 'https://amnydn.dev' },
+      { label: 'GitHub', href: 'https://github.com/aminyuddin/amnydn.dev' },
     ],
-  },
-  {
-    title: 'DuitNow & DuitNow QR – Real-Time Payments Platform (RPP)',
-    organization: 'Payments Network Malaysia (PayNet)',
-    bullets: [
-      "Delivered and operated Malaysia's national real-time payments infrastructure, enabling instant interbank fund transfers.",
-      'Supported DuitNow and DuitNow QR for high-volume, low-latency payment transactions.',
-      'Implemented DevOps and SRE practices, including CI/CD, Infrastructure as Code, monitoring, and automation.',
-      'Ensured high availability, resiliency, and operational readiness for mission-critical payment systems.',
-    ],
-  },
-  {
-    title: 'IIP – Infrastructure Improvement Plan',
-    organization: 'Payments Network Malaysia (PayNet)',
-    bullets: [
-      'Led infrastructure modernization and migration initiatives under the Infrastructure Improvement Plan (IIP).',
-      'Implemented Git-based source code repositories, improving version control, collaboration, and code merge efficiency.',
-      'Built simulation and testing tools, server monitoring scripts, and automation jobs to support production readiness.',
-      'Introduced Splunk for centralized logging, monitoring, and alerting.',
-      'Drove DevOps and automation initiatives, implementing CI/CD, Infrastructure as Code (IaC), and DevOps enablement workshops to upskill engineering teams.',
-    ],
-  },
-  {
-    title: 'JomPAY – National Bill Payment System (NBPS)',
-    organization: 'Malaysian Electronic Clearing Corporation (MyClear)',
-    bullets: [
-      "Delivered and enhanced JomPAY, Malaysia's nationwide bill payment platform.",
-      'Designed and integrated secure bank–biller connectivity under strict regulatory requirements.',
-      'Supported production readiness, transaction reliability, and post-implementation stability at national scale.',
-    ],
-  },
-  {
-    title: 'WinApp – Blockchain Wallet & API Platform',
-    organization: 'WinApp Engineer Sdn. Bhd.',
-    bullets: [
-      'Founded and led the development of a blockchain-based wallet platform and API services.',
-      'Designed secure, scalable cloud infrastructure with strong focus on performance and security.',
-      'Led product vision, architecture, and hands-on engineering execution.',
-      'Worked across blockchain, backend services, and cloud platforms.',
+    stack: [
+      { name: 'React', icon: reactLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Firebase', icon: firebaseLogo },
     ],
   },
   {
     title: 'Elastic Incident Triage Agent',
     organization: 'Personal / Hackathon Project',
     orgLabel: 'Type',
+    logo: {
+      src: ELASTIC_TRIAGE_LOGO_URL,
+      alt: 'Elastic Incident Triage Agent logo',
+      href: 'https://hackathon-ticketing.amnydn.dev/',
+      backgroundColor: '#000000',
+    },
     bullets: [
-      'Built an AI-powered incident triage agent on top of the Elastic Stack to analyze production incidents.',
-      'Leveraged LLMs and agentic workflows to summarize logs, correlate signals, and generate structured incident insights.',
-      'Designed for evidence-based triage, compliance awareness, and improved operational decision-making.',
-      'Deployed as a cloud-native service, integrating observability data with intelligent automation.',
+      'Built an AI-powered incident triage agent on top of the Elastic Stack for log-driven analysis.',
+      'Leveraged MCP tools to create, list, close, and reopen incidents with structured, explainable outputs.',
+      'Combined ES|QL searches, workflows, and evidence gathering for operations and compliance reporting.',
+      'Shipped a production-ready incident portal, MCP server, and Elastic Agent Builder assets.',
+    ],
+    links: [
+      { label: 'Hackathon', href: 'https://elasticsearch.devpost.com/' },
+      { label: 'Devpost project', href: 'https://devpost.com/software/ay-elastic-incident-triage-agent' },
+      { label: 'GitHub', href: 'https://github.com/aminyuddin/ay-elastic-incident-triage-agent' },
+      { label: 'Demo', href: 'https://hackathon-ticketing.amnydn.dev/' },
+    ],
+    stack: [
+      { name: 'Elasticsearch', icon: ELASTIC_LOGO_URL },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Firebase', icon: firebaseLogo },
+      { name: 'Python', icon: PYTHON_LOGO_URL },
     ],
   },
   {
-    title: 'This Website – Personal Portfolio',
+    title: 'AY Smart Home Dashboard',
     organization: 'Personal',
     orgLabel: 'Type',
+    logo: { src: AY_SMART_HOME_LOGO_URL, alt: 'AY Smart Home Dashboard logo' },
     bullets: [
-      'Built with Vite, React, and TypeScript for a fast, type-safe single-page portfolio.',
-      'Responsive layout with project carousel, scroll-in sections, and accessible navigation.',
-      'Deployed on Firebase Hosting with CI-friendly build and deploy workflows.',
+      'Home Assistant–compatible smart home dashboard built with entity-first modeling.',
+      'Implements real-time room views, device cards, and automation surfaces for Zigbee, Wi‑Fi, and virtual devices.',
+      'Designed with Next.js App Router, TypeScript, and Tailwind CSS; future live domain will be home.amnydn.dev.',
+    ],
+    links: [
+      { label: 'Live preview', href: 'https://home.amnydn.dev/' },
+      { label: 'GitHub', href: 'https://github.com/aminyuddin/ay-smarthome' },
+    ],
+    stack: [
+      { name: 'Next.js', icon: nextjsLogo },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+      { name: 'Home Assistant', icon: homeAssistantLogo },
+    ],
+  },
+  {
+    title: 'MCCO – Malaysian Cyber Security Community',
+    organization: 'Community-driven portal',
+    orgLabel: 'Type',
+    logo: { src: MCCO_LOGO_URL, alt: 'MCCO logo', href: 'https://mcco.org.my/' },
+    bullets: [
+      'Community-driven cybersecurity portal for Malaysia, fostering knowledge sharing and collaboration.',
+      'Platform for workshops, seminars, and networking opportunities for cybersecurity professionals.',
+      'Partners with industry events such as CYDES (Cyber Defence & Security Exhibition).',
+    ],
+    links: [{ label: 'mcco.org.my', href: 'https://mcco.org.my/' }],
+    stack: [
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Next.js', icon: nextjsLogo },
+      { name: 'PostgreSQL', icon: POSTGRESQL_LOGO_URL },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+    ],
+  },
+  {
+    title: 'Cloud Adoption & Cloud Migration',
+    organization: 'Bank Islam Malaysia Berhad',
+    logo: { src: BIMB_LOGO_URL, alt: 'Bank Islam logo' },
+    bullets: [
+      'Led enterprise migrations to AWS, aligning regulated workloads with the AWS Well-Architected Framework and financial services guardrails.',
+      'Defined multi-account landing zones, Control Tower guardrails, and hybrid connectivity between on-premises platforms and AWS.',
+      'Oversaw migration waves, cost governance, and performance optimization for mission-critical banking systems.',
+      'Enabled modernization while maintaining resiliency, security, and compliance obligations.',
+    ],
+    stack: [
+      { name: 'AWS', icon: AWS_LOGO_URL },
+      { name: 'Kubernetes', icon: EKS_LOGO_URL },
+      { name: 'ArgoCD', icon: ARGOCD_LOGO_URL },
+      { name: 'CloudFormation', icon: CLOUDFORMATION_LOGO_URL },
+    ],
+  },
+  {
+    title: 'Be U by Bank Islam – Digital Banking',
+    organization: 'Bank Islam Malaysia Berhad',
+    logo: { src: BEU_LOGO_URL, alt: 'Be U by Bank Islam logo', href: 'https://getbeu.com/' },
+    bullets: [
+      'Architected a fully digital banking experience covering onboarding, lifecycle management, and transactions.',
+      'Designed integrations with Core Banking, Credit Decision Engine, Card Management, and external services.',
+      'Implemented AML/CFT monitoring, observability, and secure system integrations for always-on operations.',
+      'Led remediation and performance optimization initiatives to meet stringent regulatory requirements.',
+    ],
+    links: [{ label: 'getbeu.com', href: 'https://getbeu.com/' }],
+    stack: [
+      { name: 'Java', icon: JAVA_LOGO_URL },
+      { name: 'Spring Boot', icon: SPRINGBOOT_LOGO_URL },
+      { name: 'Kubernetes', icon: EKS_LOGO_URL },
+      { name: 'PostgreSQL', icon: POSTGRESQL_LOGO_URL },
+      { name: 'Microservices', icon: DOCKER_LOGO_URL },
+    ],
+  },
+  {
+    title: 'DuitNow & DuitNow QR',
+    organization: 'Payments Network Malaysia (PayNet)',
+    logo: { src: PAYNET_LOGO_URL, alt: 'PayNet logo', href: 'https://www.paynet.my/' },
+    bullets: [
+      "Delivered and operated Malaysia's national real-time payments infrastructure enabling instant interbank transfers.",
+      'Supported DuitNow and DuitNow QR for high-volume, low-latency payments across banks and e-wallets.',
+      'Implemented DevOps and SRE practices including CI/CD, Infrastructure as Code, monitoring, and automation.',
+      'Ensured high availability, resiliency, and regulatory compliance for mission-critical payment rails.',
+    ],
+    links: [{ label: 'paynet.my', href: 'https://www.paynet.my/' }],
+  },
+  {
+    title: 'IIP - Infrastructure Improvement Plan',
+    organization: 'Payments Network Malaysia (PayNet)',
+    logo: { src: PAYNET_LOGO_URL, alt: 'PayNet logo', href: 'https://www.paynet.my/' },
+    bullets: [
+      'Led infrastructure modernization initiatives under PayNet’s Infrastructure Improvement Plan (IIP).',
+      'Implemented Git-based workflows to improve collaboration, governance, and change control.',
+      'Built simulation tooling, observability pipelines, and automation jobs to support production readiness.',
+      'Upskilled engineering teams through DevOps enablement workshops and Infrastructure as Code patterns.',
+    ],
+    links: [{ label: 'paynet.my', href: 'https://www.paynet.my/' }],
+  },
+  {
+    title: 'JomPAY - National Bill Payment System',
+    organization: 'Malaysian Electronic Clearing Corporation (MyClear)',
+    logo: { src: PAYNET_LOGO_URL, alt: 'PayNet logo', href: 'https://www.paynet.my/' },
+    bullets: [
+      "Delivered and enhanced JomPAY, Malaysia's nationwide bill payment platform under PayNet.",
+      'Designed secure bank-to-biller connectivity with stringent regulatory requirements.',
+      'Supported production readiness, transaction reliability, and post-implementation stability at national scale.',
+    ],
+    links: [{ label: 'paynet.my', href: 'https://www.paynet.my/' }],
+  },
+  {
+    title: 'WinApp - Digital Wallet',
+    organization: 'WinApp Messenger Sdn. Bhd.',
+    logo: { src: WINAPP_LOGO_URL, alt: 'WinApp Inc.' },
+    bullets: [
+      'Founded and led development of a blockchain-based wallet platform and API services.',
+      'Designed secure, scalable cloud infrastructure with strong focus on performance and security.',
+      'Drove product vision, architecture, and hands-on engineering execution across stack layers.',
+      'Worked across blockchain integrations, backend services, and cloud-native platforms.',
     ],
   },
 ]
@@ -385,15 +513,87 @@ function App() {
                     <span className="project-card-number" aria-hidden="true">{index + 1}</span>
                   </div>
                   <div className="project-card-body">
-                    <h3 className="project-card-title">{project.title}</h3>
-                    <p className="project-card-org">
+                    <div className="project-card-heading">
+                      {project.logo ? (
+                        <div className="project-logo">
+                          {project.logo.href ? (
+                            <a
+                              href={project.logo.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-logo-link"
+                            >
+                              <img
+                                src={project.logo.src}
+                                alt={project.logo.alt}
+                                className="project-logo-img"
+                                style={
+                                  project.logo.backgroundColor
+                                    ? { backgroundColor: project.logo.backgroundColor }
+                                    : undefined
+                                }
+                              />
+                            </a>
+                          ) : (
+                            <img
+                              src={project.logo.src}
+                              alt={project.logo.alt}
+                              className="project-logo-img"
+                              style={
+                                project.logo.backgroundColor
+                                  ? { backgroundColor: project.logo.backgroundColor }
+                                  : undefined
+                              }
+                            />
+                          )}
+                        </div>
+                      ) : null}
+                      <div className="project-card-heading-text">
+                        <h3 className="project-card-title">{project.title}</h3>
+                        <p className="project-card-org project-card-org-desktop">
+                          <strong>{project.orgLabel ?? 'Organization'}:</strong> {project.organization}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="project-card-org project-card-org-mobile">
                       <strong>{project.orgLabel ?? 'Organization'}:</strong> {project.organization}
-                    </p>
+                    </div>
+                    {project.stack ? (
+                      <ul className="project-stack" aria-label={`${project.title} technology stack`}>
+                        {[...project.stack]
+                          .sort((a, b) => b.name.length - a.name.length)
+                          .map((item) => (
+                          <li
+                            key={item.name}
+                            className={`project-stack-item${item.name.length > 10 ? ' project-stack-item--long' : ''}`}
+                          >
+                            <img src={item.icon} alt="" className="project-stack-icon" aria-hidden="true" />
+                            <span className="project-stack-name">{item.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                     <ul className="project-card-bullets">
                       {project.bullets.map((bullet, i) => (
                         <li key={i}>{bullet}</li>
                       ))}
                     </ul>
+                    {project.links ? (
+                      <div className="project-card-links">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-link"
+                          >
+                            {link.label}
+                            <span className="project-link-arrow" aria-hidden="true">↗</span>
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </li>
               ))}

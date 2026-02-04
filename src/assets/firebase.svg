@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Firebase icon</title>
+  <rect width="64" height="64" rx="12" fill="#facc15"/>
+  <path d="M20 44 30 14l6 12 6-6 12 24-18 10z" fill="#f97316"/>
+  <path d="m20 44 24-20-6 26z" fill="#fde68a"/>
+</svg>

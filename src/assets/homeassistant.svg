@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Home Assistant icon</title>
+  <rect width="64" height="64" rx="16" fill="#1d9bf0"/>
+  <path d="M32 14 14 30v20a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V30L32 14Z" fill="#ffffff"/>
+  <circle cx="24" cy="34" r="3" fill="#1d9bf0"/>
+  <circle cx="40" cy="34" r="3" fill="#1d9bf0"/>
+  <circle cx="32" cy="42" r="3" fill="#1d9bf0"/>
+</svg>

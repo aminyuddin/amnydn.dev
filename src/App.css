@@ -332,6 +332,50 @@
   justify-content: flex-start;
 }
 
+.project-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-card-heading-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  flex-shrink: 0;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.project-logo {
+  flex-shrink: 0;
+}
+
+.project-logo-link {
+  display: inline-flex;
+}
+
+.project-logo-img {
+  width: clamp(44px, 12vw, 56px);
+  height: clamp(44px, 12vw, 56px);
+  object-fit: contain;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.project-logo-link:hover .project-logo-img {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+.project-card-heading-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .project-card-title {
   margin: 0 0 0.25rem;
   font-family: var(--font-heading);
@@ -342,10 +386,21 @@
 }
 
 .project-card-org {
-  margin: 0 0 0.5rem;
+  margin: 0;
   font-size: 0.9375rem;
   color: var(--text-muted);
   line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card-org-desktop {
+  margin-top: 0.2rem;
+}
+
+.project-card-org-mobile {
+  display: none;
+  margin-top: 0.18rem;
 }
 
 .project-card-org strong {
@@ -367,6 +422,148 @@
 
 .project-card-bullets li:last-child {
   margin-bottom: 0;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.project-stack-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(13, 148, 136, 0.08);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--text);
+}
+
+.project-stack-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.project-stack-name {
+  font-weight: 500;
+}
+
+.project-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: #e6f7f6;
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.project-link-arrow {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .project-card {
+    padding: 0.9rem 2.5rem 1.1rem 0;
+  }
+
+  .project-card-left {
+    width: 3.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .project-card-heading {
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .project-card-heading-left {
+    gap: 0.08rem;
+  }
+
+  .project-card-org-mobile {
+    margin-top: 0.04rem;
+  }
+
+  .project-logo {
+    width: clamp(44px, 18vw, 52px);
+  }
+
+  .project-logo-img {
+    border-radius: 10px;
+  }
+
+  .project-card-title {
+    font-size: 1.1rem;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    margin: 0 0 0.14rem;
+  }
+
+  .project-card-org-desktop {
+    display: none;
+  }
+
+  .project-card-org-mobile {
+    display: block;
+  }
+
+  .project-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem 0.6rem;
+    width: 100%;
+  }
+
+  .project-stack-item {
+    padding: 0.22rem 0.6rem;
+    font-size: 0.8rem;
+    justify-content: flex-start;
+  }
+
+  .project-stack-item--long {
+    grid-column: 1 / -1;
+  }
+
+  .project-card-links {
+    gap: 0.4rem;
+  }
+
+  .project-link {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8125rem;
+  }
 }
 
 /* Achievement Badges */
