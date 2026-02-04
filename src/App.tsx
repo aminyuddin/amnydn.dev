@@ -27,7 +27,6 @@ const JAVA_LOGO_URL = '/logos/java.svg'
 const SPRINGBOOT_LOGO_URL = '/logos/springboot.svg'
 const DOCKER_LOGO_URL = '/logos/docker.svg'
 const TELEGRAM_LOGO_URL = '/logos/telegram.svg'
-const ADMIN_LOGO_URL = '/logos/admin.svg'
 
 const TECHNOLOGIES = [
   'Agentic AI',
