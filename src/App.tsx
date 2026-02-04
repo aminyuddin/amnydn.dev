@@ -26,6 +26,8 @@ const CLOUDFORMATION_LOGO_URL = '/logos/cloudformation.svg'
 const JAVA_LOGO_URL = '/logos/java.svg'
 const SPRINGBOOT_LOGO_URL = '/logos/springboot.svg'
 const DOCKER_LOGO_URL = '/logos/docker.svg'
+const TELEGRAM_LOGO_URL = '/logos/telegram.svg'
+const ADMIN_LOGO_URL = '/logos/admin.svg'
 
 const TECHNOLOGIES = [
   'Agentic AI',
@@ -243,7 +245,7 @@ const PROJECTS: Project[] = [
   },
   {
     title: 'MCCO – Malaysian Cyber Security Community',
-    organization: 'Community-driven portal',
+    organization: 'Community-driven',
     orgLabel: 'Type',
     logo: { src: MCCO_LOGO_URL, alt: 'MCCO logo', href: 'https://mcco.org.my/' },
     bullets: [
@@ -257,6 +259,27 @@ const PROJECTS: Project[] = [
       { name: 'Next.js', icon: nextjsLogo },
       { name: 'PostgreSQL', icon: POSTGRESQL_LOGO_URL },
       { name: 'Tailwind CSS', icon: tailwindLogo },
+    ],
+  },
+  {
+    title: 'Security Awareness Challenge',
+    organization: 'Community-driven',
+    orgLabel: 'Type',
+    logo: { src: MCCO_LOGO_URL, alt: 'MCCO logo', href: 'https://quiz.mcco.org.my/' },
+    bullets: [
+      'Next.js quiz portal for the Security Awareness Challenge: test cybersecurity knowledge across Guardian, Specialist, Expert, and Ultimate levels.',
+      'Admin panel for content and challenge management',
+      'Integrated Telegram bot for notifications and engagement.',
+      'Powered by MCCO Security Awareness Program',
+      'Questions drawn from a large security-awareness database.',
+    ],
+    links: [{ label: 'quiz.mcco.org.my', href: 'https://quiz.mcco.org.my/' }],
+    stack: [
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Next.js', icon: nextjsLogo },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+      { name: 'PostgreSQL', icon: POSTGRESQL_LOGO_URL },
+      { name: 'Telegram Bot', icon: TELEGRAM_LOGO_URL },
     ],
   },
   {
