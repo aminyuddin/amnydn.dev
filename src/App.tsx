@@ -243,6 +243,50 @@ const PROJECTS: Project[] = [
     ],
   },
   {
+    title: 'AY Image Tool – Online Image Editor',
+    organization: 'Personal',
+    orgLabel: 'Type',
+    logo: { src: 'https://image-tool.amnydn.dev/favicon.svg', alt: 'AY Image Tool logo', href: 'https://image-tool.amnydn.dev/' },
+    bullets: [
+      'Built with React and Canvas API for a fully client-side image editor with zero server uploads.',
+      'Features resize, crop, background removal, compression, OG image export, and batch processing.',
+      'Responsive design with mobile-optimized layout and desktop sidebar for seamless editing on any device.',
+      'Deployed on Firebase Hosting with custom domain and SEO-ready Open Graph metadata.',
+    ],
+    links: [
+      { label: 'Live Preview', href: 'https://image-tool.amnydn.dev/' }
+    ],
+    stack: [
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Firebase', icon: firebaseLogo },
+      { name: 'React', icon: reactLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+    ],
+  },
+  {
+    title: 'JadualWaktu.my',
+    organization: 'Personal',
+    orgLabel: 'Type',
+    logo: { src: 'https://jadualwaktu.my/logo.png', alt: 'JadualWaktu.my logo', href: 'https://jadualwaktu.my/' },
+    bullets: [
+      'Online timetable and scheduling platform for Malaysian schools and institutions.',
+      'Supports custom schedule creation, sharing, and printable exports.',
+      'Mobile-friendly interface and public homepage for easy access.',
+    ],
+    links: [
+      { label: 'Homepage', href: 'https://jadualwaktu.my/' },
+      { label: 'Live Preview', href: 'https://jadualwaktu.my/home.html' }
+    ],
+    stack: [
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'Firebase', icon: firebaseLogo },
+      { name: 'React', icon: reactLogo },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+    ],
+  },
+  {
     title: 'MCCO – Malaysian Cyber Security Community',
     organization: 'Community-driven',
     orgLabel: 'Type',
