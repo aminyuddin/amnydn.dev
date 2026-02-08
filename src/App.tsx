@@ -697,7 +697,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="badge-link"
                 >
-                  <img src={badge.imageUrl} alt="" className="badge-img" width={32} height={32} />
+                  <img src={badge.imageUrl} alt={badge.name} className="badge-img" width={32} height={32} />
                   <span className="badge-name">{badge.name}</span>
                   <span className="badge-arrow" aria-hidden="true">→</span>
                 </a>
@@ -710,7 +710,7 @@ function App() {
             rel="noopener noreferrer"
             className="badges-cta"
           >
-            <img src={CREDLY_LOGO_URL} alt="" className="badges-cta-logo" width={72} height={36} />
+            <img src={CREDLY_LOGO_URL} alt="Credly" className="badges-cta-logo" width={72} height={36} />
             <span className="badges-cta-label">View all badges</span>
             <span className="badges-cta-arrow" aria-hidden="true">→</span>
           </a>
