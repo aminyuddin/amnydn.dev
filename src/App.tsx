@@ -27,6 +27,9 @@ const JAVA_LOGO_URL = '/logos/java.svg'
 const SPRINGBOOT_LOGO_URL = '/logos/springboot.svg'
 const DOCKER_LOGO_URL = '/logos/docker.svg'
 const TELEGRAM_LOGO_URL = '/logos/telegram.svg'
+const PRISMA_LOGO_URL = '/logos/prisma.svg'
+const STRIPE_LOGO_URL = '/logos/stripe.svg'
+const NGINX_LOGO_URL = '/logos/nginx.svg'
 
 const TECHNOLOGIES = [
   'Agentic AI',
@@ -172,24 +175,29 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: 'This Website – Personal Portfolio',
-    organization: 'Personal',
+    title: 'YourTurn - Queue Management System',
+    organization: 'Personal / SaaS Product',
     orgLabel: 'Type',
-    logo: { src: PORTFOLIO_LOGO_URL, alt: 'Portfolio favicon' },
+    logo: { src: 'https://yourturn.my/logo.png', alt: 'YourTurn logo' },
     bullets: [
-      'Built with Vite, React, and TypeScript for a performant, type-safe single-page portfolio.',
-      'Features accessible navigation, animated project carousel, and badge showcase integrations.',
-      'Deployed on Firebase Hosting with CLI-driven builds and lightweight deployment automation.',
+      'Built a multi-tenant queue management SaaS with real-time SSE updates, Web Push notifications, and a customizable multi-step workflow engine.',
+      'Supports tenant subdomains (*.yourturn.my) and custom domains with zero-trust default-deny middleware, dynamic CORS, and automatic domain resolution.',
+      'Integrated Stripe billing with usage-based branch add-ons, affiliate referral tracking, and plan-tiered feature gating.',
+      'Shipped a public queue view with live ticket tracking, QR code join, TV display mode, and i18n support (English & Malay).',
+      'Implemented cookie-based session auth with MFA, role-based access control, and Nginx reverse proxy handling SSL termination and rate limiting.',
+      'Designed a mobile-first responsive UI with SSE auto-reconnect, exponential backoff, and browser push notifications for walk-in customers.',
+      'Deployed as a white-label SaaS with multi-domain routing, per-tenant branding, and automated SSL across all custom domains.',
     ],
     links: [
-      { label: 'amnydn.dev', href: 'https://amnydn.dev' },
-      { label: 'GitHub', href: 'https://github.com/aminyuddin/amnydn.dev' },
+      { label: 'Live Site', href: 'https://yourturn.my' },
     ],
     stack: [
       { name: 'React', icon: reactLogo },
-      { name: 'Vite', icon: viteLogo },
+      { name: 'Next.js', icon: nextjsLogo },
+      { name: 'Prisma', icon: PRISMA_LOGO_URL },
+      { name: 'Stripe', icon: STRIPE_LOGO_URL },
       { name: 'TypeScript', icon: typescriptLogo },
-      { name: 'Firebase', icon: firebaseLogo },
+      { name: 'Nginx', icon: NGINX_LOGO_URL },
     ],
   },
   {
@@ -219,6 +227,27 @@ const PROJECTS: Project[] = [
       { name: 'TypeScript', icon: typescriptLogo },
       { name: 'Firebase', icon: firebaseLogo },
       { name: 'Python', icon: PYTHON_LOGO_URL },
+    ],
+  },
+  {
+    title: 'This Website – Personal Portfolio',
+    organization: 'Personal',
+    orgLabel: 'Type',
+    logo: { src: PORTFOLIO_LOGO_URL, alt: 'Portfolio favicon' },
+    bullets: [
+      'Built with Vite, React, and TypeScript for a performant, type-safe single-page portfolio.',
+      'Features accessible navigation, animated project carousel, and badge showcase integrations.',
+      'Deployed on Firebase Hosting with CLI-driven builds and lightweight deployment automation.',
+    ],
+    links: [
+      { label: 'amnydn.dev', href: 'https://amnydn.dev' },
+      { label: 'GitHub', href: 'https://github.com/aminyuddin/amnydn.dev' },
+    ],
+    stack: [
+      { name: 'React', icon: reactLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Firebase', icon: firebaseLogo },
     ],
   },
   {
